@@ -580,6 +580,7 @@ final class BondStateMachine extends StateMachine {
         if (oldState == newState) {
             return;
         }
+        MetricsLogger.getInstance().logBondStateMachineEvent(device, newState);
         BluetoothStatsLog.write(
                 BluetoothStatsLog.BLUETOOTH_BOND_STATE_CHANGED,
                 mAdapterService.obfuscateAddress(device),
